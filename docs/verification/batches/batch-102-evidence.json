@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "scripts/finalize_batch.py",
+  "batch": 102,
+  "commit": "66d6a9477929d8a92b0d405ef2f76d3d1cb638b4",
+  "mode": "pre-commit",
+  "changed_files": [
+    ".github/workflows/batch-gate.yml",
+    "docs/PROGRESS.md",
+    "docs/verification/batches/batch-102-evidence.json",
+    "docs/verification/batches/batch-102-manifest.json",
+    "docs/verification/batches/batch-102-review.md",
+    "docs/verification/coderabbit/batch-102-review.jsonl",
+    "tests/test_batch_gate_artifacts.py"
+  ],
+  "required_artifacts": [
+    ".github/workflows/batch-gate.yml",
+    "tests/test_batch_gate_artifacts.py",
+    "docs/verification/batches/batch-102-manifest.json",
+    "docs/verification/batches/batch-102-review.md",
+    "docs/verification/coderabbit/batch-102-review.jsonl"
+  ],
+  "review_file": "docs/verification/batches/batch-102-review.md",
+  "commands": [
+    {
+      "name": "batch gate artifact tests",
+      "command": "D:\\football_advisor\\.runtime\\python\\python.exe -m unittest tests.test_batch_gate_artifacts -v",
+      "exit_code": 0,
+      "summary": "test_hook_scripts_use_pre_and_post_commit_modes (tests.test_batch_gate_artifacts.BatchGateArtifactsTests.test_hook_scripts_use_pre_and_post_commit_modes) ... ok | test_install_script_configures_hooks_path (tests.test_batch_gate_artifacts.BatchGateArtifactsTests.test_install_script_configures_hooks_path) ... ok | ---------------------------------------------------------------------- | Ran 4 tests in 0.001s | OK"
+    },
+    {
+      "name": "batch gate parser tests",
+      "command": "D:\\football_advisor\\.runtime\\python\\python.exe -m unittest tests.test_enforce_batch_gate -v",
+      "exit_code": 0,
+      "summary": "test_resolves_batch_from_environment (tests.test_enforce_batch_gate.EnforceBatchGateTests.test_resolves_batch_from_environment) ... ok | test_resolves_explicit_batch_first (tests.test_enforce_batch_gate.EnforceBatchGateTests.test_resolves_explicit_batch_first) ... ok | ---------------------------------------------------------------------- | Ran 8 tests in 0.002s | OK"
+    },
+    {
+      "name": "syntax compile",
+      "command": "D:\\football_advisor\\.runtime\\python\\python.exe -m compileall -q scripts tests",
+      "exit_code": 0,
+      "summary": "无输出"
+    },
+    {
+      "name": "whitespace check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "warning: in the working copy of '.github/workflows/batch-gate.yml', LF will be replaced by CRLF the next time Git touches it | warning: in the working copy of 'tests/test_batch_gate_artifacts.py', LF will be replaced by CRLF the next time Git touches it"
+    }
+  ],
+  "coderabbit": {
+    "ran": true,
+    "exit_code": 0,
+    "unhandled_issues": 0,
+    "summary": "CodeRabbit 原始产物解析完成：findings=0, fixed=0",
+    "artifact": "docs/verification/coderabbit/batch-102-review.jsonl"
+  },
+  "external_review_required": true,
+  "progress_updated": true,
+  "independent_commit": true,
+  "blocking_gaps": []
+}

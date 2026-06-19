@@ -1,0 +1,52 @@
+{
+  "review_file": "docs/verification/batches/batch-102-review.md",
+  "required_artifacts": [
+    ".github/workflows/batch-gate.yml",
+    "tests/test_batch_gate_artifacts.py",
+    "docs/verification/batches/batch-102-manifest.json",
+    "docs/verification/batches/batch-102-review.md",
+    "docs/verification/coderabbit/batch-102-review.jsonl"
+  ],
+  "coderabbit_artifact": "docs/verification/coderabbit/batch-102-review.jsonl",
+  "commands": [
+    {
+      "name": "batch gate artifact tests",
+      "command": [
+        "D:\\football_advisor\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_batch_gate_artifacts",
+        "-v"
+      ]
+    },
+    {
+      "name": "batch gate parser tests",
+      "command": [
+        "D:\\football_advisor\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_enforce_batch_gate",
+        "-v"
+      ]
+    },
+    {
+      "name": "syntax compile",
+      "command": [
+        "D:\\football_advisor\\.runtime\\python\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ]
+    },
+    {
+      "name": "whitespace check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ]
+    }
+  ]
+}
