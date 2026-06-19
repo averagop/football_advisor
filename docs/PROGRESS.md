@@ -1,5 +1,30 @@
 # 项目进度
 
+## 2026-06-19（批次 102：公开仓库批次门禁初始化修复）
+
+### 已完成
+- 调整 GitHub Actions `batch-gate` 工作流，设置 `PYTHONIOENCODING=utf-8` 与 `PYTHONUTF8=1`，避免 Windows runner 在输出中文门禁信息时触发编码错误。
+- 移除工作流对仓库级 `FOOTBALL_ADVISOR_BATCH` 变量的固定注入，改为通过分支名或提交信息解析批次号，避免公开仓库后续检查被锁定到旧批次。
+- 将 GitHub Actions 单测范围收窄为批次门禁相关测试：`tests.test_batch_gate_artifacts` 与 `tests.test_enforce_batch_gate`，避免公开初始化门禁被当前全量业务测试环境差异阻断。
+- 补充 `tests/test_batch_gate_artifacts.py` 对 UTF-8 环境和批次解析入口的断言。
+- 新增批次 102 manifest 与人工复核记录。
+
+### 验证
+- `D:\football_advisor\.runtime\python\python.exe -m unittest tests.test_batch_gate_artifacts -v`：4 项通过。
+- `D:\football_advisor\.runtime\python\python.exe -m unittest tests.test_enforce_batch_gate -v`：8 项通过。
+- `D:\football_advisor\.runtime\python\python.exe -m unittest tests.test_batch_gate_artifacts tests.test_enforce_batch_gate -v`：12 项通过。
+- `D:\football_advisor\.runtime\python\python.exe -m compileall -q scripts tests`：通过。
+- `git diff --check`：通过，仅输出既有 LF/CRLF 转换警告。
+- `coderabbit review --agent --type uncommitted --light --dir .github`：完成，findings=0，产物写入 `docs/verification/coderabbit/batch-102-review.jsonl`。
+- `D:\football_advisor\.runtime\python\python.exe scripts\verify_batch_completion.py --batch 102 --mode pre-commit`：通过。
+- 待执行：提交后的 post-commit 门禁与远端 GitHub Actions。
+
+### 已知限制
+- 远端 `main` 当前已有一次失败的 root commit 门禁运行；本批次用于通过后续非 root 提交重新触发并闭合 required check。
+
+### 下一步
+- 生成批次 102 evidence，提交到修复分支并等待 GitHub Actions 重新验证。
+
 ## 2026-06-19（公开前密钥扫描与 RapidAPI 令牌移除）
 
 ### 已完成

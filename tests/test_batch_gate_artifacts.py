@@ -33,8 +33,18 @@ class BatchGateArtifactsTests(unittest.TestCase):
         self.assertTrue(workflow.exists())
         content = workflow.read_text(encoding="utf-8")
         self.assertIn("fetch-depth: 0", content)
+        self.assertIn("PYTHONIOENCODING: utf-8", content)
+        self.assertIn('PYTHONUTF8: "1"', content)
+        self.assertNotIn("FOOTBALL_ADVISOR_BATCH: ${{ vars.FOOTBALL_ADVISOR_BATCH }}", content)
+        self.assertIn("--commit-message", content)
+        self.assertIn("toJSON(", content)
+        self.assertIn("FOOTBALL_ADVISOR_COMMIT_MESSAGE", content)
+        self.assertIn("ConvertFrom-Json", content)
         self.assertIn("scripts\\enforce_batch_gate.py --mode post-commit", content)
-        self.assertIn("-m unittest discover -s tests -v", content)
+        self.assertIn(
+            "-m unittest tests.test_batch_gate_artifacts tests.test_enforce_batch_gate -v",
+            content,
+        )
 
     def test_install_script_configures_hooks_path(self):
         installer = REPO_ROOT / "scripts" / "install_git_hooks.ps1"

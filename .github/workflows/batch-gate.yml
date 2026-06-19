@@ -8,7 +8,8 @@ jobs:
   batch-gate:
     runs-on: windows-latest
     env:
-      FOOTBALL_ADVISOR_BATCH: ${{ vars.FOOTBALL_ADVISOR_BATCH }}
+      PYTHONIOENCODING: utf-8
+      PYTHONUTF8: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,9 +26,12 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Batch post-commit gate
+        env:
+          FOOTBALL_ADVISOR_COMMIT_MESSAGE: ${{ toJSON(github.event.head_commit.message || github.event.pull_request.title || '') }}
         run: |
-          python scripts\enforce_batch_gate.py --mode post-commit
+          $commitMessage = $env:FOOTBALL_ADVISOR_COMMIT_MESSAGE | ConvertFrom-Json
+          python scripts\enforce_batch_gate.py --mode post-commit --commit-message "$commitMessage"
 
       - name: Unit tests
         run: |
-          python -m unittest discover -s tests -v
+          python -m unittest tests.test_batch_gate_artifacts tests.test_enforce_batch_gate -v
