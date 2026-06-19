@@ -1,0 +1,48 @@
+{
+  "review_file": "docs/verification/batches/batch-101-review.md",
+  "required_artifacts": [
+    "scripts/close_batch.py",
+    "tests/test_close_batch.py",
+    "docs/verification/batches/batch-101-manifest.json",
+    "docs/verification/batches/batch-101-review.md",
+    "docs/verification/batches/batch-101-evidence.json",
+    "docs/superpowers/plans/2026-06-15-production-readiness-batched-implementation-plan.md",
+    "docs/PROJECT_REQUIREMENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/PROGRESS.md"
+  ],
+  "coderabbit_artifact": "docs/verification/coderabbit/batch-101-review.jsonl",
+  "commands": [
+    {
+      "name": "批次关闭入口目标测试",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_close_batch",
+        "tests.test_finalize_batch",
+        "tests.test_verify_batch_completion",
+        "-v"
+      ]
+    },
+    {
+      "name": "脚本编译检查",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ]
+    },
+    {
+      "name": "空白检查",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ]
+    }
+  ]
+}

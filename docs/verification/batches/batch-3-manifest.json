@@ -1,0 +1,70 @@
+{
+  "review_file": "docs/verification/batches/batch-3-review.md",
+  "required_artifacts": [
+    "football_advisor/db_schema.py",
+    "football_advisor/match_resolver.py",
+    "tests/test_match_resolver.py",
+    "tests/test_reconcile_sporttery_matches.py",
+    "docs/verification/batches/batch-3-manifest.json",
+    "docs/verification/batches/batch-3-review.md",
+    "docs/verification/coderabbit/batch-3-review.jsonl"
+  ],
+  "coderabbit_artifact": "docs/verification/coderabbit/batch-3-review.jsonl",
+  "commands": [
+    {
+      "name": "目标测试(provider_mapping_importer + match_resolver + reconcile_sporttery + db_schema)",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_provider_mapping_importer",
+        "tests.test_match_resolver",
+        "tests.test_reconcile_sporttery_matches",
+        "tests.test_db_schema",
+        "-v"
+      ]
+    },
+    {
+      "name": "系统不变量测试",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_system_invariants",
+        "-v"
+      ]
+    },
+    {
+      "name": "全量测试",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    },
+    {
+      "name": "编译检查",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "football_advisor",
+        "scripts",
+        "tests"
+      ]
+    },
+    {
+      "name": "空白检查",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ]
+    }
+  ]
+}

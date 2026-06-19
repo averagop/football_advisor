@@ -1,0 +1,86 @@
+[
+  {
+    "name": "01_FootballPrediction",
+    "host": "football-prediction-api.p.rapidapi.com",
+    "status": "ok",
+    "size": 5818,
+    "data": {
+      "_keys": [
+        "data"
+      ]
+    },
+    "endpoint": "/api/v2/predictions",
+    "types": [
+      "odds",
+      "predictions",
+      "squad_depth",
+      "competition"
+    ],
+    "odds": true,
+    "fixtures": false,
+    "players": false,
+    "predictions": true,
+    "standings": false,
+    "h2h": false,
+    "stats": false,
+    "livescore": false,
+    "squad_depth": true,
+    "competition": true,
+    "elo": false,
+    "injuries": false
+  },
+  {
+    "name": "02_FootballHighlights",
+    "host": "football-highlights-api.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "03_SportAPI7",
+    "host": "sportapi7.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "04_AllsportsAPI2",
+    "host": "allsportsapi2.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "05_TodayFootballPrediction",
+    "host": "today-football-prediction.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "06_SofaScore",
+    "host": "sofascore.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "07_Betigolo",
+    "host": "betigolo-predictions.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "08_FreeAPILiveFootball",
+    "host": "free-api-live-football-data.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "09_FootAPI7",
+    "host": "footapi7.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  },
+  {
+    "name": "10_OddsFeed",
+    "host": "odds-feed.p.rapidapi.com",
+    "status": "no_data",
+    "types": []
+  }
+]

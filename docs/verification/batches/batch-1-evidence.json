@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "batch": 1,
+  "commit": "50f8d9efdedef73cf2d307f08c864301ec91c94e",
+  "changed_files": [
+    "football_advisor/models.py",
+    "football_advisor/thesportsdb_client.py",
+    "scripts/verify_delivery_readiness.py",
+    "scripts/verify_batch_completion.py",
+    "tests/__init__.py",
+    "tests/network_guard.py",
+    "tests/test_delivery_readiness.py",
+    "tests/test_system_invariants.py",
+    "tests/test_verify_batch_completion.py",
+    "docs/verification/templates/batch-evidence.schema.json",
+    "docs/verification/coderabbit/batch-1-repair-review.jsonl",
+    "docs/verification/batches/batch-1-evidence.json",
+    "docs/verification/batches/batch-1-review.md",
+    "docs/PROJECT_REQUIREMENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/PROGRESS.md"
+  ],
+  "required_artifacts": [
+    "scripts/verify_delivery_readiness.py",
+    "scripts/verify_batch_completion.py",
+    "tests/__init__.py",
+    "tests/network_guard.py",
+    "tests/test_delivery_readiness.py",
+    "tests/test_system_invariants.py",
+    "tests/test_verify_batch_completion.py",
+    "docs/verification/templates/batch-evidence.schema.json",
+    "docs/verification/coderabbit/batch-1-repair-review.jsonl",
+    "docs/verification/batches/batch-1-review.md"
+  ],
+  "review_file": "docs/verification/batches/batch-1-review.md",
+  "commands": [
+    {
+      "name": "target_tests",
+      "command": ".runtime\\python\\python.exe -m unittest tests.test_system_invariants.NetworkIsolationTests tests.test_delivery_readiness -v",
+      "exit_code": 0,
+      "summary": "13/13 通过，覆盖全局测试禁网和 ExecutionResult 接入"
+    },
+    {
+      "name": "verify_delivery_readiness",
+      "command": ".runtime\\python\\python.exe scripts\\verify_delivery_readiness.py --root . --env-path .env",
+      "exit_code": 0,
+      "summary": "脚本直接执行通过，输出 verification_status=COMPLETE, final_status=SAFE_DEGRADED"
+    },
+    {
+      "name": "verify_batch_completion_tests",
+      "command": ".runtime\\python\\python.exe -m unittest tests.test_verify_batch_completion -v",
+      "exit_code": 0,
+      "summary": "23/23 通过，覆盖外部复审原始产物、提交基线锚定、误报关键词和 git HEAD 失败关闭"
+    },
+    {
+      "name": "full_tests",
+      "command": ".runtime\\python\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "summary": "456 项测试通过，3 项历史跳过"
+    },
+    {
+      "name": "compileall",
+      "command": ".runtime\\python\\python.exe -m compileall -q football_advisor scripts tests",
+      "exit_code": 0,
+      "summary": "football_advisor、scripts、tests 编译检查通过"
+    },
+    {
+      "name": "diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "空白检查通过；仅出现既有 LF/CRLF 转换提示"
+    },
+    {
+      "name": "coderabbit_scripts",
+      "command": "coderabbit review --agent --light -t uncommitted --base HEAD --dir scripts -c AGENTS.md",
+      "exit_code": 0,
+      "summary": "CodeRabbit 轻量复审 scripts 范围，findings=0"
+    },
+    {
+      "name": "coderabbit_football_advisor",
+      "command": "coderabbit review --agent --light -t committed --base-commit 07c922d --dir football_advisor -c AGENTS.md",
+      "exit_code": 0,
+      "summary": "CodeRabbit 轻量复审批次1原始 football_advisor 高风险范围，findings=0"
+    },
+    {
+      "name": "batch_gate_pre_commit",
+      "command": ".runtime\\python\\python.exe scripts\\verify_batch_completion.py --batch 1 --mode pre-commit",
+      "exit_code": 0,
+      "summary": "批次 1 pre-commit 验收门禁通过"
+    }
+  ],
+  "coderabbit": {
+    "ran": true,
+    "exit_code": 0,
+    "unhandled_issues": 0,
+    "summary": "CodeRabbit 轻量复审已覆盖 scripts 修复范围和批次1原始 football_advisor 高风险范围，findings=0",
+    "artifact": "docs/verification/coderabbit/batch-1-repair-review.jsonl"
+  },
+  "external_review_required": true,
+  "progress_updated": true,
+  "independent_commit": true,
+  "blocking_gaps": []
+}

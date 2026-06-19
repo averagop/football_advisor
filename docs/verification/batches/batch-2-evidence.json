@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "scripts/finalize_batch.py",
+  "batch": 2,
+  "commit": "503a6b5a14926e4a8ef51c0ee290056ae43d8e7a",
+  "mode": "pre-commit",
+  "changed_files": [
+    "docs/PROGRESS.md",
+    "docs/verification/batches/batch-2-review.md",
+    "docs/verification/batches/batch-2-evidence.json"
+  ],
+  "required_artifacts": [
+    "tests/test_database_migration.py",
+    "tests/test_finalize_batch.py",
+    "tests/test_verify_batch_completion.py",
+    "scripts/finalize_batch.py",
+    "scripts/verify_database_migration.py",
+    "scripts/verify_batch_completion.py",
+    "docs/verification/batches/batch-2-manifest.json",
+    "docs/verification/batches/batch-2-review.md",
+    "docs/verification/batches/batch-2-evidence.json"
+  ],
+  "review_file": "docs/verification/batches/batch-2-review.md",
+  "commands": [
+    {
+      "name": "目标测试(test_db_schema + test_database_migration)",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_db_schema tests.test_database_migration -v",
+      "exit_code": 0,
+      "summary": "test_second_initialize_is_idempotent_no_duplicate_columns (tests.test_database_migration.DatabaseMigrationTests.test_second_initialize_is_idempotent_no_duplicate_columns) | 同一数据库二次调用 initialize_database 后，列数不变、数据不丢失。 ... ok | ---------------------------------------------------------------------- | Ran 21 tests in 3.556s | OK"
+    },
+    {
+      "name": "数据库迁移验证脚本",
+      "command": ".\\.runtime\\python\\python.exe scripts\\verify_database_migration.py --mode fixture",
+      "exit_code": 0,
+      "summary": "} | ], | \"all_passed\": true, | \"completed_at\": \"2026-06-18T14:09:10.734074+00:00\" | }"
+    },
+    {
+      "name": "批次门禁测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_verify_batch_completion tests.test_finalize_batch -v",
+      "exit_code": 0,
+      "summary": "test_finalize_batch_script_runs_directly (tests.test_finalize_batch.FinalizeBatchTests.test_finalize_batch_script_runs_directly) | 脚本必须支持 python scripts/finalize_batch.py 直接执行。 ... ok | ---------------------------------------------------------------------- | Ran 34 tests in 1.580s | OK"
+    },
+    {
+      "name": "空白检查",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "warning: in the working copy of 'docs/PROGRESS.md', LF will be replaced by CRLF the next time Git touches it | warning: in the working copy of 'docs/verification/batches/batch-2-review.md', LF will be replaced by CRLF the next time Git touches it"
+    }
+  ],
+  "coderabbit": {
+    "ran": true,
+    "exit_code": 0,
+    "unhandled_issues": 0,
+    "summary": "CodeRabbit 原始产物解析完成：findings=1, fixed=1",
+    "artifact": "docs/verification/coderabbit/batch-2-review.jsonl"
+  },
+  "external_review_required": false,
+  "progress_updated": true,
+  "independent_commit": true,
+  "blocking_gaps": []
+}

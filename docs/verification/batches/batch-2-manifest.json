@@ -1,0 +1,56 @@
+{
+  "review_file": "docs/verification/batches/batch-2-review.md",
+  "required_artifacts": [
+    "tests/test_database_migration.py",
+    "tests/test_finalize_batch.py",
+    "tests/test_verify_batch_completion.py",
+    "scripts/finalize_batch.py",
+    "scripts/verify_database_migration.py",
+    "scripts/verify_batch_completion.py",
+    "docs/verification/batches/batch-2-manifest.json",
+    "docs/verification/batches/batch-2-review.md",
+    "docs/verification/batches/batch-2-evidence.json"
+  ],
+  "coderabbit_artifact": "docs/verification/coderabbit/batch-2-review.jsonl",
+  "commands": [
+    {
+      "name": "目标测试(test_db_schema + test_database_migration)",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_db_schema",
+        "tests.test_database_migration",
+        "-v"
+      ]
+    },
+    {
+      "name": "数据库迁移验证脚本",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "scripts\\verify_database_migration.py",
+        "--mode",
+        "fixture"
+      ]
+    },
+    {
+      "name": "批次门禁测试",
+      "command": [
+        ".\\.runtime\\python\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_verify_batch_completion",
+        "tests.test_finalize_batch",
+        "-v"
+      ]
+    },
+    {
+      "name": "空白检查",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "scripts/finalize_batch.py",
+  "batch": 3,
+  "commit": "38651463e37e1e1e43e218e973e2e560e07ecc79",
+  "mode": "post-commit",
+  "changed_files": [
+    "docs/PROGRESS.md",
+    "football_advisor/db_schema.py",
+    "football_advisor/match_resolver.py",
+    "tests/test_match_resolver.py",
+    "tests/test_reconcile_sporttery_matches.py",
+    "docs/verification/batches/batch-3-evidence.json",
+    "docs/verification/batches/batch-3-manifest.json",
+    "docs/verification/batches/batch-3-review.md",
+    "docs/verification/coderabbit/batch-3-review.jsonl"
+  ],
+  "required_artifacts": [
+    "football_advisor/db_schema.py",
+    "football_advisor/match_resolver.py",
+    "tests/test_match_resolver.py",
+    "tests/test_reconcile_sporttery_matches.py",
+    "docs/verification/batches/batch-3-manifest.json",
+    "docs/verification/batches/batch-3-review.md",
+    "docs/verification/coderabbit/batch-3-review.jsonl"
+  ],
+  "review_file": "docs/verification/batches/batch-3-review.md",
+  "commands": [
+    {
+      "name": "目标测试(provider_mapping_importer + match_resolver + reconcile_sporttery + db_schema)",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_provider_mapping_importer tests.test_match_resolver tests.test_reconcile_sporttery_matches tests.test_db_schema -v",
+      "exit_code": 0,
+      "summary": "test_schema_keeps_structured_tables_in_core (tests.test_db_schema.DbSchemaTests.test_schema_keeps_structured_tables_in_core) ... ok | test_structured_freshness_uses_etl_time_for_prior_match_stats (tests.test_db_schema.DbSchemaTests.test_structured_freshness_uses_etl_time_for_prior_match_stats) ... ok | ---------------------------------------------------------------------- | Ran 35 tests in 4.945s | OK"
+    },
+    {
+      "name": "系统不变量测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_system_invariants -v",
+      "exit_code": 0,
+      "summary": "test_future_component_timestamp_is_not_fresh (tests.test_system_invariants.TimestampInvariantTests.test_future_component_timestamp_is_not_fresh) | 组件时间戳在未来时不得被判定为 fresh。 ... ok | ---------------------------------------------------------------------- | Ran 19 tests in 0.710s | OK"
+    },
+    {
+      "name": "全量测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "summary": "test_special_markets_use_detail_odds_table (test_walkthrough_e2e.WalkthroughE2ETests.test_special_markets_use_detail_odds_table) ... ok | test_imports_confirmed_group_fixtures_and_last5_stats_only (test_worldcup_basic_importer.WorldCupBasicImporterTests.test_imports_confirmed_group_fixtures_and_last5_stats_only) ... ok | ---------------------------------------------------------------------- | Ran 489 tests in 52.566s | OK (skipped=3)"
+    },
+    {
+      "name": "编译检查",
+      "command": ".\\.runtime\\python\\python.exe -m compileall -q football_advisor scripts tests",
+      "exit_code": 0,
+      "summary": "无输出"
+    },
+    {
+      "name": "空白检查",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "warning: in the working copy of 'docs/PROGRESS.md', LF will be replaced by CRLF the next time Git touches it | warning: in the working copy of 'football_advisor/db_schema.py', LF will be replaced by CRLF the next time Git touches it"
+    }
+  ],
+  "coderabbit": {
+    "ran": true,
+    "exit_code": 0,
+    "unhandled_issues": 0,
+    "summary": "CodeRabbit 原始产物解析完成：findings=1, fixed=1",
+    "artifact": "docs/verification/coderabbit/batch-3-review.jsonl"
+  },
+  "external_review_required": true,
+  "progress_updated": true,
+  "independent_commit": true,
+  "blocking_gaps": []
+}

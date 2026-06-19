@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "scripts/finalize_batch.py",
+  "batch": 101,
+  "commit": "fb4c36be08a377be052dd9f85b818d0c1124a11e",
+  "mode": "pre-commit",
+  "changed_files": [
+    "docs/ARCHITECTURE.md",
+    "docs/PROGRESS.md",
+    "docs/PROJECT_REQUIREMENTS.md",
+    "docs/superpowers/plans/2026-06-15-production-readiness-batched-implementation-plan.md",
+    "docs/verification/batches/batch-101-evidence.json",
+    "docs/verification/batches/batch-101-manifest.json",
+    "docs/verification/batches/batch-101-review.md",
+    "docs/verification/coderabbit/batch-101-review.jsonl",
+    "scripts/close_batch.py",
+    "tests/test_close_batch.py"
+  ],
+  "required_artifacts": [
+    "scripts/close_batch.py",
+    "tests/test_close_batch.py",
+    "docs/verification/batches/batch-101-manifest.json",
+    "docs/verification/batches/batch-101-review.md",
+    "docs/verification/batches/batch-101-evidence.json",
+    "docs/superpowers/plans/2026-06-15-production-readiness-batched-implementation-plan.md",
+    "docs/PROJECT_REQUIREMENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/PROGRESS.md"
+  ],
+  "review_file": "docs/verification/batches/batch-101-review.md",
+  "commands": [
+    {
+      "name": "批次关闭入口目标测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_close_batch tests.test_finalize_batch tests.test_verify_batch_completion -v",
+      "exit_code": 0,
+      "summary": "test_result_blocking_gaps_are_immutable (tests.test_verify_batch_completion.VerifyBatchCompletionTests.test_result_blocking_gaps_are_immutable) ... ok | test_valid_pre_commit_evidence_passes (tests.test_verify_batch_completion.VerifyBatchCompletionTests.test_valid_pre_commit_evidence_passes) ... ok | ---------------------------------------------------------------------- | Ran 41 tests in 1.745s | OK"
+    },
+    {
+      "name": "脚本编译检查",
+      "command": ".\\.runtime\\python\\python.exe -m compileall -q scripts tests",
+      "exit_code": 0,
+      "summary": "无输出"
+    },
+    {
+      "name": "空白检查",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "warning: in the working copy of 'docs/ARCHITECTURE.md', LF will be replaced by CRLF the next time Git touches it | warning: in the working copy of 'docs/PROGRESS.md', LF will be replaced by CRLF the next time Git touches it | warning: in the working copy of 'docs/PROJECT_REQUIREMENTS.md', LF will be replaced by CRLF the next time Git touches it | warning: in the working copy of 'docs/superpowers/plans/2026-06-15-production-readiness-batched-implementation-plan.md', LF will be replaced by CRLF th"
+    }
+  ],
+  "coderabbit": {
+    "ran": true,
+    "exit_code": 0,
+    "unhandled_issues": 0,
+    "summary": "CodeRabbit 原始产物解析完成：findings=0, fixed=0",
+    "artifact": "docs/verification/coderabbit/batch-101-review.jsonl"
+  },
+  "external_review_required": true,
+  "progress_updated": true,
+  "independent_commit": true,
+  "blocking_gaps": []
+}

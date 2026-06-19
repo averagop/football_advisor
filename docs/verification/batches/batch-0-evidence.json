@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "batch": 0,
+  "commit": "pending-batch-0-closure",
+  "changed_files": [
+    ".githooks/pre-commit",
+    ".githooks/pre-push",
+    ".github/workflows/batch-gate.yml",
+    "docs/ARCHITECTURE.md",
+    "docs/PROGRESS.md",
+    "docs/PROJECT_REQUIREMENTS.md",
+    "docs/superpowers/plans/2026-06-15-production-readiness-batched-implementation-plan.md",
+    "docs/verification/batches/batch-0-evidence.json",
+    "docs/verification/batches/batch-0-review.md",
+    "docs/verification/templates/batch-evidence.schema.json",
+    "scripts/enforce_batch_gate.py",
+    "scripts/git-hooks/pre-commit.ps1",
+    "scripts/git-hooks/pre-push.ps1",
+    "scripts/install_git_hooks.ps1",
+    "scripts/verify_batch_completion.py",
+    "tests/test_batch_gate_artifacts.py",
+    "tests/test_enforce_batch_gate.py",
+    "tests/test_verify_batch_completion.py"
+  ],
+  "required_artifacts": [
+    "docs/verification/production-readiness-baseline.md",
+    "docs/verification/production-readiness-issue-register.md",
+    "docs/verification/templates/batch-evidence.schema.json",
+    "docs/verification/batches/batch-0-review.md",
+    ".github/workflows/batch-gate.yml",
+    ".githooks/pre-commit",
+    ".githooks/pre-push",
+    "scripts/enforce_batch_gate.py",
+    "scripts/git-hooks/pre-commit.ps1",
+    "scripts/git-hooks/pre-push.ps1",
+    "scripts/install_git_hooks.ps1",
+    "scripts/verify_batch_completion.py",
+    "tests/test_batch_gate_artifacts.py",
+    "tests/test_enforce_batch_gate.py",
+    "tests/test_verify_batch_completion.py",
+    "football_advisor/thesportsdb_client.py"
+  ],
+  "review_file": "docs/verification/batches/batch-0-review.md",
+  "commands": [
+    {
+      "name": "验收器目标测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_verify_batch_completion -v",
+      "exit_code": 0,
+      "summary": "15项通过；覆盖风险触发式外部复审和改动路径自动判定"
+    },
+    {
+      "name": "强制门禁解析测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_enforce_batch_gate -v",
+      "exit_code": 0,
+      "summary": "8项通过；覆盖pre-commit不读取上一条提交信息"
+    },
+    {
+      "name": "hook和CI产物测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_batch_gate_artifacts -v",
+      "exit_code": 0,
+      "summary": "4项通过"
+    },
+    {
+      "name": "本地Git hooks安装",
+      "command": "powershell.exe -ExecutionPolicy Bypass -File scripts\\install_git_hooks.ps1",
+      "exit_code": 0,
+      "summary": "core.hooksPath 已设置为 .githooks"
+    },
+    {
+      "name": "TheSportsDB回归测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest tests.test_thesportsdb_client -v",
+      "exit_code": 0,
+      "summary": "13项通过"
+    },
+    {
+      "name": "编译检查",
+      "command": "$env:PYTHONPYCACHEPREFIX='tmp\\compile_cache'; .\\.runtime\\python\\python.exe -m compileall -q football_advisor scripts tests",
+      "exit_code": 0,
+      "summary": "通过"
+    },
+    {
+      "name": "全量测试",
+      "command": ".\\.runtime\\python\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "summary": "439项运行，全部通过，3项跳过"
+    },
+    {
+      "name": "空白检查",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "无空白错误；存在Git换行转换警告"
+    },
+    {
+      "name": "批次0提交前门禁",
+      "command": ".\\.runtime\\python\\python.exe scripts\\verify_batch_completion.py --batch 0 --mode pre-commit",
+      "exit_code": 0,
+      "summary": "通过"
+    }
+  ],
+  "external_review_required": false,
+  "coderabbit": {
+    "ran": true,
+    "exit_code": 124,
+    "unhandled_issues": 0,
+    "summary": "前序复审发现的本批有效问题已修复；补充复审触发限流和超时，按风险触发式策略记录为非强制外部复审，不阻断本批本地门禁"
+  },
+  "progress_updated": true,
+  "independent_commit": true,
+  "blocking_gaps": []
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Football Advisor Batch Evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_by",
+    "batch",
+    "commit",
+    "changed_files",
+    "required_artifacts",
+    "review_file",
+    "commands",
+    "coderabbit",
+    "progress_updated",
+    "independent_commit",
+    "blocking_gaps"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0"},
+    "generated_by": {
+      "type": "string",
+      "const": "scripts/finalize_batch.py",
+      "description": "批次证据必须由自动 finalize 脚本生成；commit、changed_files、commands、coderabbit 等关键字段不得手写。"
+    },
+    "batch": {"type": "integer", "minimum": 0},
+    "commit": {
+      "type": "string",
+      "minLength": 7,
+      "description": "本批开始前的基线提交；pre-commit 阶段应等于当前 HEAD，post-commit 阶段应等于当前 HEAD 的父提交。"
+    },
+    "mode": {"type": "string", "enum": ["pre-commit", "post-commit"]},
+    "changed_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "required_artifacts": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "review_file": {"type": "string"},
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "command", "exit_code", "summary"],
+        "properties": {
+          "name": {"type": "string"},
+          "command": {"type": "string"},
+          "exit_code": {"type": "integer"},
+          "summary": {"type": "string"}
+        }
+      }
+    },
+    "coderabbit": {
+      "type": "object",
+      "required": ["ran", "exit_code", "unhandled_issues"],
+      "properties": {
+        "ran": {"type": "boolean"},
+        "exit_code": {"type": "integer"},
+        "unhandled_issues": {"type": "integer", "minimum": 0},
+        "summary": {"type": "string"},
+        "note": {"type": "string"},
+        "raw_summary": {"type": "string"},
+        "artifact": {"type": "string"}
+      }
+    },
+    "external_review_required": {"type": "boolean"},
+    "progress_updated": {"type": "boolean"},
+    "independent_commit": {"type": "boolean"},
+    "blocking_gaps": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "external_review_required": {"const": true}
+        }
+      },
+      "then": {
+        "properties": {
+          "coderabbit": {
+            "required": ["ran", "exit_code", "unhandled_issues", "artifact"]
+          }
+        }
+      }
+    }
+  ]
+}

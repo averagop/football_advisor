@@ -1,0 +1,85 @@
+{
+  "test_date": "2026-06-09",
+  "version": "v3",
+  "summary": "根据文档修正endpoint后重新测试。3个v2死源复活：FootballHighlights(893联赛/23967队/156场)、OddsFeed(亚盘+大小球+1X2)、FreeAPILiveFootball(球员搜索)。",
+  "results": {
+    "revived": [
+      {
+        "name": "FootballHighlights",
+        "host": "football-highlights-api.p.rapidapi.com",
+        "endpoints": {
+          "/countries": {"status": 200, "size": 25284, "data": "258 countries"},
+          "/countries/GB": {"status": 200, "size": 103, "data": "GB country info"},
+          "/leagues": {"status": 200, "size": 31577, "data": "893 leagues, paginated"},
+          "/leagues/104": {"status": 200, "size": 2, "data": "empty list"},
+          "/teams": {"status": 200, "size": 681, "data": "23967 teams, paginated"},
+          "/teams?name=Spain": {"status": 200, "size": 244, "data": "1 team found"},
+          "/teams/statistics/553?fromDate=2023-08-06": {"status": 200, "size": 2, "data": "empty list"},
+          "/matches?date=2026-06-09&limit=3": {"status": 200, "size": 1857, "data": "156 matches today"},
+          "/matches?date=2026-06-08&limit=3": {"status": 200, "size": 1865, "data": "74 matches"},
+          "/matches?countryCode=GB&limit=2": {"status": 200, "size": 136, "data": "0 matches"},
+          "/matches?leagueId=104&limit=2": {"status": 200, "size": 136, "data": "0 matches"}
+        },
+        "plan_tier": "BASIC",
+        "plan_message": "All data available with current plan.",
+        "v2_status": "HTTP403",
+        "v3_status": "FULLY WORKING",
+        "revive_reason": "v2使用了错误端点 /teams/Spain（id需数字），正确端点全部可用"
+      },
+      {
+        "name": "OddsFeed",
+        "host": "odds-feed.p.rapidapi.com",
+        "endpoints": {
+          "/api/v1/events?date=2026-06-09": {"status": 200, "size": 81603, "data": "100 events, includes World Cup, Club Friendly"},
+          "/api/v1/markets/feed?market_name=1X2&event_ids=845,123,435,22,842,844": {"status": 200, "size": 7089, "data": "3 markets"},
+          "/api/v1/markets/feed?market_name=ASIAN_HANDICAP&event_ids=...": {"status": 200, "size": 66143, "data": "66 markets"},
+          "/api/v1/markets/feed?market_name=OVER_UNDER&event_ids=...": {"status": 200, "size": 59503, "data": "66 markets"},
+          "/api/v1/markets/feed?market_name=HOME_AWAY&event_ids=...": {"status": 200, "size": 68, "data": "0 markets"},
+          "/api/v1/markets/feed?market_name=BOTH_TEAMS_TO_SCORE&event_ids=...": {"status": 200, "size": 68, "data": "0 markets"}
+        },
+        "valid_market_names": ["1X2", "OVER_UNDER", "ASIAN_HANDICAP", "HOME_AWAY", "BOTH_TEAMS_TO_SCORE"],
+        "v2_status": "HTTP403",
+        "v3_status": "FULLY WORKING",
+        "revive_reason": "v2缺少必填参数 event_ids，传入后全部200"
+      },
+      {
+        "name": "FreeAPILiveFootball",
+        "host": "free-api-live-football-data.p.rapidapi.com",
+        "endpoints": {
+          "/football-players-search?search=Messi": {"status": 200, "size": 4760, "data": "player data"},
+          "/football-players-search?search=Ronaldo": {"status": 200, "size": 5731, "data": "player data"},
+          "/football-players-search?search=Spain": {"status": 200, "size": 273, "data": "minimal"},
+          "/football-teams": {"status": 404},
+          "/football-fixtures": {"status": 404},
+          "/football-standings": {"status": 404},
+          "/football-live-scores": {"status": 404},
+          "/football-matches": {"status": 404}
+        },
+        "v2_status": "HTTP401",
+        "v3_status": "PARTIAL (players search only)",
+        "revive_reason": "v2缺少x-rapidapi-key header，但其他端点(联赛/赛程/积分榜)全部404"
+      }
+    ],
+    "still_broken": [
+      {
+        "name": "Betigolo",
+        "status": 401,
+        "message": "This endpoint is disabled for your subscription",
+        "note": "正确端点是 /football/{date} 而非 /handball/{date}，但订阅级别不支持",
+        "action": "升级RapidAPI订阅计划"
+      },
+      {
+        "name": "SportAPI7",
+        "status": "all 404",
+        "message": "5种足球端点猜测全部404",
+        "action": "提供RapidAPI上的endpoint列表"
+      },
+      {
+        "name": "SofaScore",
+        "status": "204 No Content",
+        "message": "端点存在但免费版不返回数据",
+        "action": "检查RapidAPI订阅级别"
+      }
+    ]
+  }
+}

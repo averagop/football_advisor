@@ -1,0 +1,2 @@
+#!/bin/sh
+exec powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/git-hooks/pre-push.ps1 "$@"

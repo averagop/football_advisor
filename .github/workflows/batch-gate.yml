@@ -1,0 +1,33 @@
+name: batch-gate
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  batch-gate:
+    runs-on: windows-latest
+    env:
+      FOOTBALL_ADVISOR_BATCH: ${{ vars.FOOTBALL_ADVISOR_BATCH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+
+      - name: Batch post-commit gate
+        run: |
+          python scripts\enforce_batch_gate.py --mode post-commit
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -v

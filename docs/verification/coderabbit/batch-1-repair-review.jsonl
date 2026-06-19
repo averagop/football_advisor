@@ -1,0 +1,4 @@
+{"type":"review_context","reviewType":"uncommitted","currentBranch":"codex/fix-production-readiness-closure","baseBranch":"HEAD","workingDirectory":"/mnt/d/Knowledge_Base-duckdb/scripts","command":"coderabbit review --agent --light -t uncommitted --base HEAD --dir scripts -c AGENTS.md"}
+{"type":"complete","status":"review_completed","findings":0}
+{"type":"review_context","reviewType":"committed","currentBranch":"codex/fix-production-readiness-closure","baseBranch":"HEAD","baseCommit":"07c922d","workingDirectory":"/mnt/d/Knowledge_Base-duckdb/football_advisor","command":"coderabbit review --agent --light -t committed --base-commit 07c922d --dir football_advisor -c AGENTS.md"}
+{"type":"complete","status":"review_completed","findings":0}

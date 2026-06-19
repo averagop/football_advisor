@@ -1,0 +1,194 @@
+provider_name,provider_team_id,system_team_id,provider_team_name
+SportteryOfficialWeb,克罗地亚,WC_TEAM_CRO,克罗地亚
+SportteryOfficialWeb,斯洛文尼,WC_TEAM_SLO,斯洛文尼
+SportteryOfficialWeb,摩洛哥,WC_TEAM_MAR,摩洛哥
+SportteryOfficialWeb,挪威,WC_TEAM_NOR,挪威
+SportteryOfficialWeb,希腊,WC_TEAM_GRE,希腊
+SportteryOfficialWeb,意大利,WC_TEAM_ITA,意大利
+SportteryOfficialWeb,哥伦比亚,WC_TEAM_COL,哥伦比亚
+SportteryOfficialWeb,约旦,WC_TEAM_JOR,约旦
+SportteryOfficialWeb,加拿大,WC_TEAM_CAN,加拿大
+SportteryOfficialWeb,波黑,WC_TEAM_BIH,波黑
+SportteryOfficialWeb,美国,WC_TEAM_USA,美国
+SportteryOfficialWeb,巴拉圭,WC_TEAM_PAR,巴拉圭
+SportteryOfficialWeb,墨西哥,WC_TEAM_MEX,墨西哥
+SportteryOfficialWeb,南非,WC_TEAM_RSA,南非
+SportteryOfficialWeb,韩国,WC_TEAM_KOR,韩国
+SportteryOfficialWeb,捷克,WC_TEAM_CZE,捷克
+SportteryOfficialWeb,428,WC_TEAM_QAT,卡塔尔
+SportteryOfficialWeb,403,WC_TEAM_SUI,瑞士
+SportteryOfficialWeb,417,WC_TEAM_BRA,巴西
+SportteryOfficialWeb,424,WC_TEAM_MAR,摩洛哥
+SportteryOfficialWeb,915,WC_TEAM_HAI,海地
+SportteryOfficialWeb,398,WC_TEAM_SCO,苏格兰
+SportteryOfficialWeb,421,WC_TEAM_AUS,澳大利亚
+SportteryOfficialWeb,404,WC_TEAM_TUR,土耳其
+SportteryOfficialWeb,377,WC_TEAM_GER,德国
+SportteryOfficialWeb,德国,WC_TEAM_GER,德国
+SportteryOfficialWeb,2514,WC_TEAM_CUW,库拉索
+SportteryOfficialWeb,库拉索,WC_TEAM_CUW,库拉索
+SportteryOfficialWeb,389,WC_TEAM_NED,荷兰
+SportteryOfficialWeb,荷兰,WC_TEAM_NED,荷兰
+SportteryOfficialWeb,438,WC_TEAM_JPN,日本
+SportteryOfficialWeb,日本,WC_TEAM_JPN,日本
+SportteryOfficialWeb,691,WC_TEAM_CIV,科特迪瓦
+SportteryOfficialWeb,科特迪瓦,WC_TEAM_CIV,科特迪瓦
+SportteryOfficialWeb,415,WC_TEAM_ECU,厄瓜多尔
+SportteryOfficialWeb,厄瓜多尔,WC_TEAM_ECU,厄瓜多尔
+SportteryOfficialWeb,402,WC_TEAM_SWE,瑞典
+SportteryOfficialWeb,瑞典,WC_TEAM_SWE,瑞典
+SportteryOfficialWeb,425,WC_TEAM_TUN,突尼斯
+SportteryOfficialWeb,突尼斯,WC_TEAM_TUN,突尼斯
+API-Football,1,WC_TEAM_BEL,Belgium
+API-Football,2,WC_TEAM_FRA,France
+API-Football,3,WC_TEAM_ARG,Argentina
+API-Football,4,WC_TEAM_ENG,England
+API-Football,5,WC_TEAM_BRA,Brazil
+API-Football,6,WC_TEAM_CRO,Croatia
+API-Football,7,WC_TEAM_POR,Portugal
+API-Football,8,WC_TEAM_ESP,Spain
+API-Football,9,WC_TEAM_NED,Netherlands
+API-Football,10,WC_TEAM_GER,Germany
+API-Football,11,WC_TEAM_URU,Uruguay
+API-Football,12,WC_TEAM_JPN,Japan
+API-Football,768,WC_TEAM_ITA,Italy
+API-Football,1117,WC_TEAM_GRE,Greece
+API-Football,14,WC_TEAM_MEX,Mexico
+API-Football,1531,WC_TEAM_RSA,South Africa
+API-Football,15,WC_TEAM_USA,USA
+API-Football,16,WC_TEAM_MAR,Morocco
+API-Football,17,WC_TEAM_SEN,Senegal
+API-Football,18,WC_TEAM_DEN,Denmark
+API-Football,19,WC_TEAM_SUI,Switzerland
+API-Football,20,WC_TEAM_COL,Colombia
+API-Football,21,WC_TEAM_IRN,Iran
+API-Football,22,WC_TEAM_KOR,South Korea
+API-Football,23,WC_TEAM_AUS,Australia
+API-Football,24,WC_TEAM_NZL,New Zealand
+API-Football,25,WC_TEAM_AUT,Austria
+API-Football,26,WC_TEAM_NGA,Nigeria
+API-Football,27,WC_TEAM_EGY,Egypt
+API-Football,28,WC_TEAM_CIV,Ivory Coast
+API-Football,29,WC_TEAM_GHA,Ghana
+API-Football,30,WC_TEAM_ECU,Ecuador
+API-Football,31,WC_TEAM_CHI,Chile
+API-Football,32,WC_TEAM_CAN,Canada
+API-Football,42,TOP5_ARS,Arsenal
+API-Football,49,TOP5_CHE,Chelsea
+API-Football,50,TOP5_MCI,Manchester City
+API-Football,40,TOP5_LIV,Liverpool
+API-Football,33,TOP5_MUN,Manchester United
+API-Football,47,TOP5_TOT,Tottenham Hotspur
+API-Football,34,TOP5_NEW,Newcastle United
+API-Football,66,TOP5_AVL,Aston Villa
+API-Football,51,TOP5_BHA,Brighton
+API-Football,48,TOP5_WHU,West Ham United
+API-Football,529,TOP5_BAR,Barcelona
+API-Football,541,TOP5_RMA,Real Madrid
+API-Football,530,TOP5_ATM,Atletico Madrid
+API-Football,536,TOP5_SEV,Sevilla
+API-Football,532,TOP5_VAL,Valencia
+API-Football,531,TOP5_ATH,Athletic Bilbao
+API-Football,548,TOP5_RSO,Real Sociedad
+API-Football,533,TOP5_VIL,Villarreal
+API-Football,157,TOP5_BAY,Bayern Munich
+API-Football,165,TOP5_BVB,Borussia Dortmund
+API-Football,168,TOP5_LEV,Bayer Leverkusen
+API-Football,173,TOP5_LEI,RB Leipzig
+API-Football,169,TOP5_FRA,Eintracht Frankfurt
+API-Football,172,TOP5_STU,VfB Stuttgart
+API-Football,489,TOP5_JUV,Juventus
+API-Football,505,TOP5_INT,Inter Milan
+API-Football,487,TOP5_MIL,AC Milan
+API-Football,492,TOP5_NAP,Napoli
+API-Football,497,TOP5_ROM,AS Roma
+API-Football,490,TOP5_ATA,Atalanta
+API-Football,494,TOP5_LAZ,Lazio
+API-Football,85,TOP5_PSG,Paris Saint-Germain
+API-Football,91,TOP5_MON,AS Monaco
+API-Football,81,TOP5_MAR,Olympique Marseille
+API-Football,80,TOP5_LYO,Olympique Lyon
+API-Football,79,TOP5_LIL,LOSC Lille
+API-Football,94,TOP5_REN,Stade Rennais
+API-Football,84,TOP5_NIC,OGC Nice
+football-data.org,57,TOP5_ARS,Arsenal FC
+football-data.org,61,TOP5_CHE,Chelsea FC
+football-data.org,65,TOP5_MCI,Manchester City FC
+football-data.org,64,TOP5_LIV,Liverpool FC
+football-data.org,66,TOP5_MUN,Manchester United FC
+football-data.org,73,TOP5_TOT,Tottenham Hotspur FC
+football-data.org,67,TOP5_NEW,Newcastle United FC
+football-data.org,58,TOP5_AVL,Aston Villa FC
+football-data.org,397,TOP5_BHA,Brighton & Hove Albion FC
+football-data.org,563,TOP5_WHU,West Ham United FC
+football-data.org,81,TOP5_BAR,FC Barcelona
+football-data.org,86,TOP5_RMA,Real Madrid CF
+football-data.org,78,TOP5_ATM,Club Atletico de Madrid
+football-data.org,559,TOP5_SEV,Sevilla FC
+football-data.org,95,TOP5_VAL,Valencia CF
+football-data.org,77,TOP5_ATH,Athletic Club
+football-data.org,92,TOP5_RSO,Real Sociedad
+football-data.org,94,TOP5_VIL,Villarreal CF
+football-data.org,5,TOP5_BAY,FC Bayern Munchen
+football-data.org,4,TOP5_BVB,Borussia Dortmund
+football-data.org,3,TOP5_LEV,Bayer 04 Leverkusen
+football-data.org,721,TOP5_LEI,RB Leipzig
+football-data.org,19,TOP5_FRA,Eintracht Frankfurt
+football-data.org,10,TOP5_STU,VfB Stuttgart
+football-data.org,109,TOP5_JUV,Juventus FC
+football-data.org,108,TOP5_INT,FC Internazionale Milano
+football-data.org,98,TOP5_MIL,AC Milan
+football-data.org,113,TOP5_NAP,SSC Napoli
+football-data.org,100,TOP5_ROM,AS Roma
+football-data.org,102,TOP5_ATA,Atalanta BC
+football-data.org,110,TOP5_LAZ,SS Lazio
+football-data.org,524,TOP5_PSG,Paris Saint-Germain FC
+football-data.org,548,TOP5_MON,AS Monaco FC
+football-data.org,516,TOP5_MAR,Olympique de Marseille
+football-data.org,523,TOP5_LYO,Olympique Lyonnais
+football-data.org,521,TOP5_LIL,LOSC Lille
+football-data.org,529,TOP5_REN,Stade Rennais FC
+football-data.org,522,TOP5_NIC,OGC Nice
+football-data.org,759,WC_TEAM_ARG,Argentina
+football-data.org,764,WC_TEAM_BRA,Brazil
+football-data.org,759,WC_TEAM_FRA,France
+football-data.org,770,WC_TEAM_ENG,England
+football-data.org,760,WC_TEAM_ESP,Spain
+football-data.org,759,WC_TEAM_GER,Germany
+football-data.org,7990,WC_TEAM_JPN,Japan
+football-data.org,7997,WC_TEAM_KOR,South Korea
+football-data.org,773,WC_TEAM_FRA,France
+football-data.org,772,WC_TEAM_USA,USA
+football-data.org,769,WC_TEAM_MEX,Mexico
+football-data.org,774,WC_TEAM_RSA,South Africa
+football-data.org,8065,WC_TEAM_AUS,Australia
+football-data.org,779,WC_TEAM_CAN,Canada
+TheSportsDB,133604,TOP5_ARS,Arsenal
+TheSportsDB,133601,TOP5_CHE,Chelsea
+TheSportsDB,133615,TOP5_LIV,Liverpool
+TheSportsDB,133600,TOP5_MCI,Manchester City
+TheSportsDB,133616,TOP5_MUN,Manchester United
+TheSportsDB,133625,TOP5_TOT,Tottenham Hotspur
+TheSportsDB,134777,TOP5_BAR,Barcelona
+TheSportsDB,134778,TOP5_RMA,Real Madrid
+TheSportsDB,133609,TOP5_BAY,Bayern Munich
+TheSportsDB,133608,TOP5_BVB,Borussia Dortmund
+TheSportsDB,134947,TOP5_JUV,Juventus
+TheSportsDB,134941,TOP5_INT,Inter Milan
+TheSportsDB,134939,TOP5_MIL,AC Milan
+TheSportsDB,133621,TOP5_PSG,Paris Saint-Germain
+TheSportsDB,134782,TOP5_ATA,Atalanta
+TheSportsDB,133727,TOP5_ATH,Athletic Bilbao
+TheSportsDB,133729,TOP5_ATM,Atlético Madrid
+TheSportsDB,133619,TOP5_BHA,Brighton and Hove Albion
+TheSportsDB,133814,TOP5_FRA,Eintracht Frankfurt
+TheSportsDB,133666,TOP5_LEV,Bayer Leverkusen
+TheSportsDB,133713,TOP5_LYO,Lyon
+TheSportsDB,133707,TOP5_MAR,Marseille
+TheSportsDB,134509,WC_TEAM_ARG,Argentina
+TheSportsDB,134500,WC_TEAM_AUS,Australia
+TheSportsDB,135986,WC_TEAM_AUT,Austria
+TheSportsDB,134515,WC_TEAM_BEL,Belgium
+TheSportsDB,134496,WC_TEAM_BRA,Brazil
+TheSportsDB,140073,WC_TEAM_CAN,Canada
+TheSportsDB,134501,WC_TEAM_COL,Colombia

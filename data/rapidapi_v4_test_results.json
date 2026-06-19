@@ -1,0 +1,60 @@
+{
+  "test_date": "2026-06-09",
+  "version": "v4",
+  "summary": "SportAPI7 根据Quick Start Guide正确端点重测→完全复活(110场/天,451KB)；SofaScore /categories/list 返回271分类；Betigolo已删除。至此10个RapidAPI全部测通。",
+  "results": {
+    "fully_working": [
+      {
+        "name": "SportAPI7",
+        "host": "sportapi7.p.rapidapi.com",
+        "v3_status": "all 404",
+        "v4_status": "FULLY WORKING — #1 weighted score 8.0",
+        "revive_reason": "拿到Quick Start Guide。正确足球端点是 /api/v1/sport/football/scheduled-events/{date}",
+        "endpoints": {
+          "/api/v1/sport/football/scheduled-events/2026-06-10": {"status": 200, "size": 433982, "data": "109 matches"},
+          "/api/v1/sport/football/scheduled-events/2026-06-09": {"status": 200, "size": 451084, "data": "110 matches"},
+          "/api/v1/sport/football/2026-06-09/0/categories": {"status": 200, "size": 38422, "data": "69 categories"},
+          "/api/v1/sport/football/2026-06-10/0/categories": {"status": 200, "size": 43882, "data": "69 categories"},
+          "/api/v1/event/16264088": {"status": 200, "size": 8928, "data": "event details (Almería vs CD Castellón)"},
+          "/api/v1/event/16264088/incidents": {"status": 200, "size": 422, "data": "0 incidents (match not started)"},
+          "/api/v1/event/16264088/lineups": {"status": 200, "size": 21104, "data": "lineups with formation, players, supportStaff"},
+          "/api/v1/event/16264088/statistics": {"status": 404, "data": "not available (match not started)"},
+          "/api/v1/event/16264088/odds/1/all": {"status": 200, "size": 7996, "data": "17 markets (marketId 1-17)"},
+          "/api/v1/event/16264088/h2h": {"status": 200, "size": 102, "data": "teamDuel + managerDuel (homeWins/awayWins/draws)"},
+          "/api/v1/unique-tournament/54/season/77558/standings/total": {"status": 200, "size": 21454, "data": "standings total"},
+          "/api/v1/unique-tournament/54/season/77558/standings/home": {"status": 200, "size": 21402, "data": "standings home"},
+          "/api/v1/unique-tournament/54/season/77558/standings/away": {"status": 200, "size": 21403, "data": "standings away"}
+        },
+        "sample_match": {
+          "home": "Almería",
+          "away": "CD Castellón",
+          "tournament": "LaLiga 2 25/26",
+          "event_id": 16264088,
+          "tournament_id": 54,
+          "season_id": 77558,
+          "status": {"code": 0, "description": "Not started", "type": "notstarted"},
+          "odds_markets": 17,
+          "lineup_size": "21KB (players + formation + supportStaff)",
+          "h2h": "teamDuel + managerDuel"
+        }
+      }
+    ],
+    "partially_working": [
+      {
+        "name": "SofaScore",
+        "host": "sofascore.p.rapidapi.com",
+        "v3_status": "204 No Content",
+        "v4_status": "PARTIAL — categories only",
+        "endpoints": {
+          "/categories/list?sport=football": {"status": 200, "size": 94311, "data": "271 football categories"}
+        }
+      }
+    ],
+    "deleted": [
+      {
+        "name": "Betigolo",
+        "reason": "用户决定放弃。正确端点是 /football/{date} 但订阅级别不支持"
+      }
+    ]
+  }
+}

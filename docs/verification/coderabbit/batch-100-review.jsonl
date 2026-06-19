@@ -1,0 +1,14 @@
+﻿{"type":"review_context","reviewType":"uncommitted","currentBranch":"codex/fix-production-readiness-closure","baseBranch":"HEAD","workingDirectory":"/mnt/d/Knowledge_Base-duckdb/scripts"}
+{"type":"status","phase":"connecting","status":"connecting_to_review_service"}
+{"type":"status","phase":"setup","status":"setting_up"}
+{"type":"status","phase":"analyzing","status":"summarizing"}
+{"type":"status","phase":"analyzing","status":"reviewing"}
+{"type":"heartbeat","status":"reviewing"}
+{"type":"heartbeat","status":"reviewing"}
+{"type":"complete","status":"review_completed","findings":0}
+{"type":"review_context","reviewType":"uncommitted","currentBranch":"codex/fix-production-readiness-closure","baseBranch":"HEAD","workingDirectory":"/mnt/d/Knowledge_Base-duckdb/tests"}
+{"type":"status","phase":"connecting","status":"connecting_to_review_service"}
+{"type":"status","phase":"setup","status":"setting_up"}
+{"type":"status","phase":"analyzing","status":"summarizing"}
+{"type":"status","phase":"analyzing","status":"reviewing"}
+{"type":"complete","status":"review_completed","findings":0}

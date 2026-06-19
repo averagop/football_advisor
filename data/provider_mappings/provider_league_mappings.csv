@@ -1,0 +1,33 @@
+provider_name,provider_league_id,system_league_id,provider_league_name
+football-data.org,WC,WC_WORLD_CUP_2026,FIFA World Cup
+football-data.org,PL,TOP5_EPL,Premier League
+football-data.org,PD,TOP5_LA_LIGA,Primera Division
+football-data.org,BL1,TOP5_BUNDESLIGA,Bundesliga
+football-data.org,SA,TOP5_SERIE_A,Serie A
+football-data.org,FL1,TOP5_LIGUE_1,Ligue 1
+API-Football,1,WC_WORLD_CUP_2026,World Cup
+API-Football,39,TOP5_EPL,Premier League
+API-Football,140,TOP5_LA_LIGA,La Liga
+API-Football,78,TOP5_BUNDESLIGA,Bundesliga
+API-Football,135,TOP5_SERIE_A,Serie A
+API-Football,61,TOP5_LIGUE_1,Ligue 1
+TheSportsDB,4429,WC_WORLD_CUP_2026,FIFA World Cup
+TheSportsDB,4328,TOP5_EPL,English Premier League
+TheSportsDB,4335,TOP5_LA_LIGA,Spanish La Liga
+TheSportsDB,4331,TOP5_BUNDESLIGA,German Bundesliga
+TheSportsDB,4332,TOP5_SERIE_A,Italian Serie A
+TheSportsDB,4334,TOP5_LIGUE_1,French Ligue 1
+Sportmonks,1534,WC_WORLD_CUP_2026,FIFA World Cup 2026
+Sportmonks,501,TOP5_EPL,Premier League
+Sportmonks,564,TOP5_LA_LIGA,La Liga
+Sportmonks,82,TOP5_BUNDESLIGA,Bundesliga
+Sportmonks,384,TOP5_SERIE_A,Serie A
+Sportmonks,301,TOP5_LIGUE_1,Ligue 1
+iSports-API,216,WC_WORLD_CUP_2026,FIFA World Cup
+iSports-API,17,TOP5_EPL,Premier League
+iSports-API,139,TOP5_LA_LIGA,La Liga
+iSports-API,78,TOP5_BUNDESLIGA,Bundesliga
+iSports-API,135,TOP5_SERIE_A,Serie A
+iSports-API,61,TOP5_LIGUE_1,Ligue 1
+SportteryOfficialWeb,国际赛,INTL_FRIENDLY,国际赛
+SportteryOfficialWeb,世界杯,WC_WORLD_CUP_2026,世界杯
